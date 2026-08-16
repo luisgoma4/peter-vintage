@@ -1,541 +1,502 @@
 Peter Vintage — Website Text
 
-This file contains every editable piece of copy on the site (headlines, paragraphs,
-button labels, testimonials, captions). Edit the text after any [id] tag and send
-the file back — the ID tells me exactly where it goes in the HTML, so nothing gets
+This file contains every editable piece of copy on the site (headlines, paragraphs, 
+button labels, testimonials, captions). Edit the text after any [id] tag and send 
+the file back — the ID tells me exactly where it goes in the HTML, so nothing gets 
 mismatched even if two lines end up saying the same thing.
 
 Please don't:
 delete or rename the [id] tags — they're the map back into the code.
 add/remove whole sections here — if you want a new section, tell me separately.
 
-Not included (functional, not copy): navigation URLs, image files, stats/percentages
-that come from the shop's actual sales data (listing count, ratings, language %,
-size/colour/condition breakdowns) — those get refreshed from the data, not hand-edited.
+Not included (functional, not copy): navigation URLs, image files, stats/percentages 
+that come from the shop's actual sales data (listing count, ratings, language %, 
+size/colour/condition breakdowns) — those get refreshed from the data, not hand-edited. 
 Image alt-text (accessibility descriptions) is also left out; say if you'd like it in.
-
 ⸻
-
 Shared — appears on every page
 
-[shared.nav.home]
+[shared.nav.home] 
 Home
 
-[shared.nav.collection]
+[shared.nav.collection] 
 Collection
 
-[shared.nav.advertisement]
+[shared.nav.advertisement] 
 Advertisement
 
-[shared.nav.stats]
+[shared.nav.stats] 
 Stats & Reach
 
-[shared.footer.cta_heading]
-Follow the Closet
+[shared.footer.cta_heading] 
+Follow the Closet 
 (appears on: index.html, stats.html)
 
-[shared.footer.cta_text]
-New arrivals are photographed and posted first. Find the shop on Instagram and browse the full catalogue and buyer reviews on Vinted.
+[shared.footer.cta_text] 
+New arrivals are photographed and posted first. Find the shop on Instagram and browse the full catalogue and buyer reviews on Vinted. 
 (appears on: index.html, stats.html)
 
-[shared.footer.bottom_left]
+[shared.footer.bottom_left] 
 Peter Vintage — Poznań, Poland
 
-[shared.footer.bottom_right]
+[shared.footer.bottom_right] 
 Independent vintage reseller · Not affiliated with Vinted
-
 ⸻
-
 index.html — Home
 
-[home.meta.title]
-Peter Vintage — American Vintage, Workwear & Military, Poznań, Poland to the World
+[home.meta.title] 
+Peter Vintage — American vintage &Workwear & Military,
+Poznań Poland to the World
 
-[home.meta.description]
+[home.meta.description] 
 Peter Vintage sources and ships genuine 1930s–1980s American denim, workwear, military and outerwear from Poznań, Poland to an international closet of buyers.
-
 Hero
-
-[home.hero.eyebrow]
+[home.hero.eyebrow] 
 Est. 2022 · Poznań, Poland
 
-[home.hero.title]
-Workwear Military Outerwear<br>American Vintage of Selling and Collecting
+[home.hero.title] 
+Hi! Welcome to Peter vintage 
+
 (the <br> is a line break — keep it or remove it, your call)
 
-[home.hero.subtitle]
+[home.hero.subtitle] 
+Workwear&Military&Outerwear&Amracan vintage of selling and collecting 
 Genuine 1930s–1980s denim, workwear, military surplus and outerwear — hand-picked in Poland, worn by buyers across Europe and beyond. No repro, no filler, just closet-worthy pieces with real age on them.
 
-[home.hero.button_primary]
+[home.hero.button_primary] 
 Shop on Vinted
 
-[home.hero.button_secondary]
+[home.hero.button_secondary] 
 View the numbers
-
 "From the Racks" (collection preview grid)
-
-[home.collection.eyebrow]
+[home.collection.eyebrow] 
 From the Racks
 
-[home.collection.heading]
+[home.collection.heading] 
 A look inside the Closet
 
-[home.collection.text]
+[home.collection.text] 
 These are some items from Peter Vintage's personal collection, including classic American and European workwear, military gear, Navajo ethnic jewelry, and more. This is just the tip of the iceberg of Peter Vintage's collection.
-
-[home.collection.caption_talon]
+[home.collection.caption_talon] 
 Talon zipper collection
 
-[home.collection.caption_silver]
+[home.collection.caption_silver] 
 Navajo & Mexican silver jewelry
 
-[home.collection.caption_sneakers]
+[home.collection.caption_sneakers] 
 1960s–70s DDR canvas sneakers
 
-[home.collection.caption_flatlay]
+[home.collection.caption_flatlay] 
 Voodoo's Cowboy flat-lay
 
-[home.collection.caption_hercules]
+[home.collection.caption_hercules] 
 1950s Hercules wool jacket
 
-[home.collection.caption_sweatshirt]
+[home.collection.caption_sweatshirt] 
 1940s–80s US Army wool sweatshirt
 
-[home.collection.caption_boots]
+[home.collection.caption_boots] 
 70s–80s Red Wing "Supersole" boots
 
-[home.collection.caption_navy]
+[home.collection.caption_navy] 
 1940s WWII US Navy collection
 
-[home.collection.caption_redwing]
+[home.collection.caption_redwing] 
 Red Wing, since 1905
 
-[home.collection.button]
+[home.collection.button] 
 View the full Collection
-
 "The Shop" (about)
-
-[home.about.eyebrow]
+[home.about.eyebrow] 
 The Shop
 
-[home.about.heading]
+[home.about.heading] 
 A one-person closet, run like a business
 
-[home.about.text]
+[home.about.text] 
 Peter Vintage is a specialist reseller based in Poznań, trading since 2022. Every piece is sourced individually — no wholesale lots, no dropshipping — and shipped internationally, with a buyer base that writes in Polish, Danish, Swedish, Czech, German and English.
 
-[home.about.card1_number]
+[home.about.card1_number] 
 2022
 
-[home.about.card1_heading]
+[home.about.card1_heading] 
 Verified since day one
 
-[home.about.card1_text]
+[home.about.card1_text] 
 Trading as a verified seller from Poznań, Poland — identity-checked and platform-verified from the account's founding.
 
-[home.about.card2_number]
+[home.about.card2_number] 
 15
 
-[home.about.card2_heading]
+[home.about.card2_heading] 
 Carriers, zero friction
 
-[home.about.card2_text]
+[home.about.card2_text] 
 DHL, DPD, GLS, InPost, ORLEN and Poczta Polska all enabled — buyers pick whichever courier or parcel locker suits them, anywhere it ships.
 
-[home.about.card3_number]
+[home.about.card3_number] 
 6
 
-[home.about.card3_heading]
+[home.about.card3_heading] 
 Languages of thanks
 
-[home.about.card3_text]
+[home.about.card3_text] 
 Buyer reviews arrive in Polish, Danish, Swedish, Czech, German and English — a genuinely international closet, not a local one.
-
 "The Specialism"
-
-[home.specialism.eyebrow]
+[home.specialism.eyebrow] 
 The Specialism
 
-[home.specialism.heading]
+[home.specialism.heading] 
 Denim, workwear, military, outerwear — and nothing sourced to fill space
 
-[home.specialism.text]
+[home.specialism.text] 
 The watchlist behind the shop reads like a heritage-label reference sheet: alongside the obvious names, it hunts specifically for period-correct hardware markers like Talon zippers to date a garment before it's ever listed.
 
-[home.specialism.categories]
+[home.specialism.categories] 
 Denim · Workwear · Military & Army Surplus · Outerwear
 
-[home.specialism.brands]
+[home.specialism.brands] 
 Levi's Vintage Clothing, Woolrich, Filson, Pendleton, L.L. Bean, Stetson, Aero Leather, Red Wing, Patagonia, The North Face, Champion, Converse, Borsalino, Persol
-
 "Reputation" (testimonials)
-
-[home.trust.eyebrow]
+[home.trust.eyebrow] 
 Reputation
 
-[home.trust.heading]
+[home.trust.heading] 
 What buyers say, in their own words
 
-[home.trust.review1]
-"Thank you. Good contact, fast payment. I recommend this user!"
+[home.trust.review1] 
+"Thank you. Good contact, fast payment. I recommend this user!" 
 — Verified buyer, translated from Polish
 
-[home.trust.review2]
-"Good communication and good delivery 👍"
+[home.trust.review2] 
+"Good communication and good delivery 👍" 
 — Verified buyer, translated from Danish
 
-[home.trust.review3]
-"Everything as described."
+[home.trust.review3] 
+"Everything as described." 
 — Verified buyer, translated from Polish
 
-[home.trust.review4]
-"Very well preserved item, measurements true to what was listed."
+[home.trust.review4] 
+"Very well preserved item, measurements true to what was listed." 
 — Verified buyer
 
-[home.trust.review5]
-"Great deal, fast and pleasant dealings, I can recommend!!!"
+[home.trust.review5] 
+"Great deal, fast and pleasant dealings, I can recommend!!!" 
 — Verified buyer, translated from Czech
 
-[home.trust.review6]
-"Was quick to send the parcel."
+[home.trust.review6] 
+"Was quick to send the parcel." 
 — Verified buyer, translated from Danish
-
 Footer
-
-[home.footer.button_stats]
+[home.footer.button_stats] 
 Shop stats & reach →
-
 ⸻
-
 gallery.html — Collection / Brand & Mood Gallery
 
-[gallery.meta.title]
+[gallery.meta.title] 
 Peter Vintage — Brand & Mood Gallery
 
-[gallery.meta.description]
-The flash-art mascots, patch lettering and noir mood footage behind Peter Vintage — a Poznań-based specialist in 1930s–1980s American denim, workwear, military and outerwear.
+[gallery.meta.description] 
 
-Hero
-
-[gallery.hero.eyebrow]
+[gallery.hero.eyebrow] 
 Brand & Mood Gallery
 
-[gallery.hero.title]
-Special introduction to some collectibles from Peter Vintage
+[gallery.hero.title] 
+Special introduction of collectibles from Peter Vintage
+[gallery.hero.subtitle] 
+More vintages weekly updates 
+trnpeter on Vinted and @peter.vintage on Instagram.
 
-[gallery.hero.subtitle]
-1930s–1980s American denim, workwear, military and outerwear, shipped worldwide under @trnpeter on Vinted and @peter.vintage on Instagram.
-
-[gallery.hero.tags]
-Flash Art · Mood Reel · Poznań, Poland
+[gallery.hero.tags] 
 
 "The Exhibition" — 10 walk-through pieces
-
 Each piece has a small eyebrow label, a heading, and a paragraph.
 
-[gallery.exhibition.eyebrow]
+[gallery.exhibition.eyebrow] 
 The Exhibition
 
-[gallery.exhibition.heading]
+[gallery.exhibition.heading] 
 From the Racks — A Walk-Through
 
-[gallery.exhibition.text]
+[gallery.exhibition.text] 
 Ten pieces pulled out of the archive and hung like an exhibition, label details and all.
 
-[gallery.exhibit01.label]
+[gallery.exhibit01.label] 
 Exhibit 1:
 
-[gallery.exhibit01.heading]
+[gallery.exhibit01.heading] 
 Talon zipper collection.
 
-[gallery.exhibit01.text]
+[gallery.exhibit01.text] 
 Talon is one of America's iconic vintage zipper manufacturers, dating back to the late 19th century. Widely used from the 1930s–1960s on workwear, denim, military, and outdoor clothing, Talon zippers are now valuable clues for dating and authenticating vintage garments.
 
-[gallery.exhibit02.label]
+[gallery.exhibit02.label] 
 Exhibit 02
 
-[gallery.exhibit02.heading]
-American Navajo and Mexican silver jewelry
+[gallery.exhibit02.heading] 
+American Navajo and Mexican silver jewelry 
 
-[gallery.exhibit02.text]
+[gallery.exhibit02.text] 
 Navajo stone necklace or bracelet/1970s
 
-925 silver ring, handmade in Mexico 1980s-1990s
+ 925 silver ring,handmade in Mexico 1980s-1990s
 
 Navajo Zuni Thunderbird Necklace 925 Silver/1960s
 
-[gallery.exhibit03.label]
+[gallery.exhibit03.label] 
 Exhibit 03
 
-[gallery.exhibit03.heading]
+[gallery.exhibit03.heading] 
 1960-70s German Market Canvas Sneakers
 
-[gallery.exhibit03.text]
+
+[gallery.exhibit03.text] 
 DDR/Eastern Bloc production for the German-speaking market.
 
 The simple and elegant tailoring and the extended imagination of Bauhaus style
 
-[gallery.exhibit04.label]
+[gallery.exhibit04.label] 
 Exhibit 04
 
-[gallery.exhibit04.heading]
+[gallery.exhibit04.heading] 
 Voodoo’s cowboy.
 
-[gallery.exhibit04.text]
+[gallery.exhibit04.text] 
 1920s Tom max hat 
 1990s Levi’s denim blazer 
 1970s Red wing pegos
 
 Classic American Western style
 
-[gallery.exhibit05.label]
+[gallery.exhibit05.label] 
 Exhibit 05
 
-[gallery.exhibit05.heading]
+[gallery.exhibit05.heading] 
 1950s Hercules wool jacket by Sears Roebuck
 
-[gallery.exhibit05.text]
+[gallery.exhibit05.text] 
+
 Hercules was a renowned Sears workwear label, known for its heavy-duty American workwear from the early 20th century through the 1960s. Its rugged construction and iconic designs make Hercules pieces highly sought after by vintage collectors.
 
-[gallery.exhibit06.label]
+[gallery.exhibit06.label] 
 Exhibit 06
 
-[gallery.exhibit06.heading]
+[gallery.exhibit06.heading] 
 1940s-1980s us army vintage wool sweatshirt.
 
-[gallery.exhibit06.text]
+
+[gallery.exhibit06.text] 
 The design is simple, the material is high-quality wool, and the colors are understated, workwear-inspired.
 
-[gallery.exhibit07.label]
+[gallery.exhibit07.label] 
 Exhibit 07
 
-[gallery.exhibit07.heading]
-70s-80s Red wings boots “Supersole” 204/8004
+[gallery.exhibit07.heading] 
+70s-80s Red wings boots “Supersole”204/8004
 
-[gallery.exhibit07.text]
-This boots comes in the iconic Oro-Russet Portage leather and “super sole”, really similar to redwings limited boots called “8804”
 
-[gallery.exhibit08.label]
+
+[gallery.exhibit07.text] 
+This boots comes in the iconic Oro-Russet Portage leather and “super sole”, really similar to redwings limited boots call”8804”
+
+[gallery.exhibit08.label] 
 Exhibit 08
 
-[gallery.exhibit08.heading]
+[gallery.exhibit08.heading] 
 1940s WW2 US Navy Collection
 
-[gallery.exhibit08.text]
+
+[gallery.exhibit08.text] 
 In the world of workwear and vintage military collectibles, 1940s U.S. Navy items are highly valued for their cool designs and expensive materials.
 
-[gallery.exhibit09.label]
+[gallery.exhibit09.label] 
 Exhibit 09
 
-[gallery.exhibit09.heading]
-Red wing workwear boots
+[gallery.exhibit09.heading] 
+Red wing workwear boots 
 
-[gallery.exhibit09.text]
+
+
+[gallery.exhibit09.text] 
+
 Red Wing is an iconic American workwear footwear brand founded in 1905. Known for its durable, repairable boots, it has become one of the most influential names in American workwear and a favorite among vintage collectors.
 
-[gallery.exhibit10.label]
+[gallery.exhibit10.label] 
 Exhibit 10
 
-[gallery.exhibit10.heading]
-FFA jacket, US mail bag
+[gallery.exhibit10.heading] 
+FFA jacket,Us mall bag
 
-[gallery.exhibit10.text]
+[gallery.exhibit10.text] 
 Vintage FFA Jacket
 The FFA (Future Farmers of America) was founded in 1928. Its iconic blue corduroy jacket became the official uniform in 1933 and has since become an important symbol of American agricultural education and high school culture. Vintage FFA jackets often feature hand-embroidered designs, school names, and the wearer’s name, giving them a distinctive American vintage character.
 
 Vintage U.S. Mail Bag
 Classic U.S. mail bags were used by American postal workers and were typically made from heavy-duty canvas or leather, emphasizing durability and practicality. Today, vintage mail bags are highly recognizable accessories in vintage workwear, carrying a strong sense of American workwear and postal history.
 
-"The Collection" — mascot/patch/mood grid
 
-[gallery.grid.eyebrow]
-The Collection
+Appreciate the logo design of Peter Vintage：
 
-[gallery.grid.heading]
-Mascots, Patches, and the Noir Reel Behind the Racks
+from the Ukrainian vintage seller @White_lightning777.
 
-[gallery.grid.text]
-Ten pieces of the shop's own art direction — four hand-drawn mascots in tattoo-flash style, and six silent mood clips built around the "P.V.R. Detective Agency," the noir persona that sits behind the brand. The reel plays muted and loops, so treat it as ambient footage rather than film with sound.
+[gallery.grid.tile01_tag] 
+[gallery.grid.tile01_caption] 
 
-Each tile below has a small tag (e.g. "Flash Art", "Mood Reel", "Shop Floor") and a one-line caption:
+[gallery.grid.tile02_tag] 
+[gallery.grid.tile02_caption]  
 
-[gallery.grid.tile01_tag] Mood Reel
-[gallery.grid.tile01_caption] A silhouette on the stairs.
+[gallery.grid.tile03_tag]
+[gallery.grid.tile03_caption] 
 
-[gallery.grid.tile02_tag] Flash Art
-[gallery.grid.tile02_caption] The core mark — fox-skeleton lockup, tattoo-flash style.
+[gallery.grid.tile04_tag] 
 
-[gallery.grid.tile03_tag] Mood Reel
-[gallery.grid.tile03_caption] Noir portrait — the mood behind the brand.
+[gallery.grid.tile04_caption] 
 
-[gallery.grid.tile04_tag] Flash Art
-[gallery.grid.tile04_caption] Devil flash art, full color on cream paper.
 
-[gallery.grid.tile05_tag] Mood Reel
-[gallery.grid.tile05_caption] Night city — neon and chrome, noir backdrop.
+[gallery.grid.tile05_tag] 
+[gallery.grid.tile05_caption] 
 
-[gallery.grid.tile06_tag] Mood Reel
-[gallery.grid.tile06_caption] "P.V.R Detective Agency" — the noir alter-ego.
 
-[gallery.grid.tile07_tag] Mood Reel
-[gallery.grid.tile07_caption] Case notes — fedora at the typewriter.
+[gallery.grid.tile06_tag]
+[gallery.grid.tile06_caption] 
 
-[gallery.grid.tile08_tag] Flash Art
-[gallery.grid.tile08_caption] Cat-with-bass mascot, patch lettering on red.
+[gallery.grid.tile07_tag] 
 
-[gallery.grid.tile09_tag] Shop Floor
-[gallery.grid.tile09_caption] In the racks, before it's ever listed.
+[gallery.grid.tile07_caption]
+
+[gallery.grid.tile08_tag]
+[gallery.grid.tile08_caption]
+
+[gallery.grid.tile09_tag]
+[gallery.grid.tile09_caption] 
 
 Footer
-
-[gallery.footer.button_instagram]
+[gallery.footer.button_instagram] 
 Instagram — @peter.vintage
 
-[gallery.footer.button_vinted]
+[gallery.footer.button_vinted] 
 Vinted — @trnpeter
-
 ⸻
 
-history.html — "Vintage Files" video reel
 
-[history.meta.title]
-Peter Vintage — The Reel
+[history.meta.title] 
+Peter Vintage 
 
-[history.meta.description]
-Peter Vintage in motion — a short reel of clips from the P.V.R. Detective Agency, one after another.
+[history.hero.title] 
+appreciate “Peter vintage” Noir style advertisement 
 
-[history.hero.eyebrow]
-Peter Vintage
-
-[history.hero.title]
-Vintage Files
-
-[history.footer.button_instagram]
+[history.footer.button_instagram] 
 Instagram — @peter.vintage
 
-[history.footer.button_vinted]
+[history.footer.button_vinted] 
 Vinted — @trnpeter
 
-[history.footer.button_gallery]
+[history.footer.button_gallery] 
 See the gallery →
 
 (this page has no other body copy — it's just the video player)
-
 ⸻
-
 stats.html — Stats & Reach
 
-[stats.meta.title]
+[stats.meta.title] 
 Peter Vintage — Stats & International Reach
 
-[stats.meta.description]
+[stats.meta.description] 
 A formal overview of Peter Vintage: trading history, catalogue composition, buyer reputation and where an international closet of buyers is writing in from — Poznań, Poland to Europe and beyond.
-
 Hero
-
-[stats.hero.eyebrow]
+[stats.hero.eyebrow] 
 Performance Overview · Poznań, Poland
 
-[stats.hero.title]
+[stats.hero.title] 
 Trading Record & Reputation
 
-[stats.hero.subtitle]
+[stats.hero.subtitle] 
 A formal summary of the shop's public record — trading history, buyer reputation, catalogue composition and the mix of languages reviews arrive in. No projections, no vanity metrics, just the record so far.
 
-[stats.hero.button_instagram]
+[stats.hero.button_instagram] 
 Instagram — @peter.vintage
 
-[stats.hero.button_back]
+[stats.hero.button_back] 
 ← Back to the shop
-
 "At a Glance" (key figures)
-
-[stats.headline.eyebrow]
+[stats.headline.eyebrow] 
 At a Glance
 
-[stats.headline.heading]
+[stats.headline.heading] 
 Key figures
 
-[stats.headline.text]
+[stats.headline.text] 
 A snapshot of the catalogue as it stands today, alongside the trading history that got it here.
 
 Card headings/descriptions (the numbers themselves are pulled from the data, not edited here):
 
-[stats.headline.card1_heading] Active listings
+[stats.headline.card1_heading] Active listings 
 [stats.headline.card1_text] The current catalogue, browsable now on Vinted and via the Collection page.
 
-[stats.headline.card2_heading] Completed sales
+[stats.headline.card2_heading] Completed sales 
 [stats.headline.card2_text] Real, finished transactions across the shop's full trading history — not just listings.
 
-[stats.headline.card3_heading] Average rating
+[stats.headline.card3_heading] Average rating 
 [stats.headline.card3_text] 97.7% five-star, drawn from 216 buyer reviews.
 
-[stats.headline.card4_heading] Catalogue views
+[stats.headline.card4_heading] Catalogue views 
 [stats.headline.card4_text] 6,053 likes across the current listings — genuine browsing interest, not paid traffic.
-
 "Trading History"
-
-[stats.growth.eyebrow]
+[stats.growth.eyebrow] 
 Trading History
 
-[stats.growth.heading]
+[stats.growth.heading] 
 A record of sustained growth
 
-[stats.growth.text]
+[stats.growth.text] 
 Peter Vintage has traded continuously from Poznań since October 2022 — a one-person operation, verified from day one. The business established its specialism in its second year and has sustained year-on-year growth in every full trading year since, building an increasingly international buyer base along the way.
 
-[stats.growth.timeline]
+[stats.growth.timeline] 
 2022 — Founded, Poznań · 2024 — Specialism established · 2025 — International reach · 2026 — Ongoing
-
 "The Catalogue"
-
-[stats.composition.eyebrow]
+[stats.composition.eyebrow] 
 The Catalogue
 
-[stats.composition.heading]
+[stats.composition.heading] 
 Catalogue composition
 
-[stats.composition.text]
+[stats.composition.text] 
 205 pieces currently listed, anchored by a heritage brand list spanning denim, workwear, military and outerwear specialists — with the size, colour and condition composition set out below.
 
-[stats.composition.brands]
+[stats.composition.brands] 
 Levi's Vintage Clothing, Woolrich, Filson, Pendleton, L.L. Bean, Stetson, Aero Leather, Red Wing, Patagonia, The North Face, Champion, Converse, Borsalino, Persol, Tod's, Kenzo
 
 (size/colour/condition percentages are data — not edited here)
-
 "International Reach"
-
-[stats.reach.eyebrow]
+[stats.reach.eyebrow] 
 International Reach
 
-[stats.reach.heading]
+[stats.reach.heading] 
 Buyer reach across Europe and beyond
 
-[stats.reach.text]
+[stats.reach.text] 
 Peter Vintage ships from Poznań, Poland via 15 courier options to buyers across Europe and beyond. Buyer reviews arrive in a genuinely international mix of languages — the best signal available for how far the catalogue reaches.
 
-[stats.reach.polish_line]
+[stats.reach.polish_line] 
 Polish — the single largest language among buyer reviews, reflecting the shop's home market.
 
-[stats.reach.english_line]
+[stats.reach.english_line] 
 English or unaccented text — the majority of all review text, spanning a broad, international buyer base beyond Poland.
 
-[stats.reach.also_heard_label]
+[stats.reach.also_heard_label] 
 Also heard from, regularly:
 
-[stats.reach.also_heard_languages]
+[stats.reach.also_heard_languages] 
 Danish, Swedish, Czech, German
 
-[stats.reach.footnote]
+[stats.reach.footnote] 
 Buyer reach across Europe and beyond — reflecting review languages, not exact shipment logs. Peter Vintage ships from Poznań, Poland via 15 courier options.
-
 Footer
-
-[stats.footer.button_instagram]
+[stats.footer.button_instagram] 
 Instagram — @peter.vintage
 
-[stats.footer.button_vinted]
+[stats.footer.button_vinted] 
 Vinted — @trnpeter
 
-[stats.footer.button_back]
+[stats.footer.button_back] 
 ← Back to the shop

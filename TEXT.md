@@ -207,7 +207,7 @@ Shop stats & reach →
 
 ---
 
-## gallery.html — Collection / Brand & Mood Gallery
+## collection.html — Collection / Brand & Mood Gallery
 
 [gallery.meta.title]
 Peter Vintage — Brand & Mood Gallery
@@ -396,7 +396,7 @@ Vinted — @trnpeter
 
 ---
 
-## history.html — "Vintage Files" video reel
+## advertisement.html — "Vintage Files" video reel
 
 [history.meta.title]
 Peter Vintage — The Reel
