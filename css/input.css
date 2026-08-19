@@ -19,6 +19,10 @@
   --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
+/* Design-system tokens: semantic color (light/dark), spacing, radii, elevation,
+   motion and the modular typographic scale. See docs/03-design-system.md. */
+@import "./tokens.css";
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -27,12 +31,93 @@
   body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    font-family: var(--font-body);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    font-weight: var(--font-weight-body);
+    background-color: var(--color-surface);
+    color: var(--color-text);
   }
   a {
     color: var(--color-gold);
   }
   a:hover {
     text-decoration: underline;
+  }
+
+  /* Typographic scale, mobile-first — matches docs/03-design-system.md §2.
+     Desktop step (display/h1/h2 only) applies at md (768px), see below. */
+  h1 {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h1);
+    line-height: var(--line-height-h1);
+    font-weight: var(--font-weight-h1);
+    letter-spacing: var(--letter-spacing-h1);
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    font-weight: var(--font-weight-h2);
+  }
+  h3 {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h3);
+    line-height: var(--line-height-h3);
+    font-weight: var(--font-weight-h3);
+  }
+  h4 {
+    font-family: var(--font-body);
+    font-size: var(--font-size-h4);
+    line-height: var(--line-height-h4);
+    font-weight: var(--font-weight-h4);
+    letter-spacing: var(--letter-spacing-h4);
+    text-transform: uppercase;
+  }
+  small {
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+    font-weight: var(--font-weight-small);
+  }
+}
+
+@media (min-width: 768px) {
+  @layer base {
+    h1 {
+      font-size: var(--font-size-h1-md);
+    }
+    h2 {
+      font-size: var(--font-size-h2-md);
+    }
+  }
+}
+
+@layer components {
+  /* Base content container — docs/03-design-system.md §1.
+     max-width 1280px (card grids); margins: space-16 @375px, space-24 @sm,
+     space-32 @lg. Prose blocks that need the 72ch measure use .text-body
+     (defined in tokens.css) inside this container, not a separate wrapper. */
+  .pv-container {
+    width: 100%;
+    max-width: var(--breakpoint-xl, 1280px);
+    margin-inline: auto;
+    padding-inline: var(--spacing-16);
+  }
+}
+
+@media (min-width: 640px) {
+  @layer components {
+    .pv-container {
+      padding-inline: var(--spacing-24);
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  @layer components {
+    .pv-container {
+      padding-inline: var(--spacing-32);
+    }
   }
 }
 

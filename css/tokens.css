@@ -1,0 +1,583 @@
+/* Peter Vintage — design tokens (system-generated, do not hand-edit values here
+   without updating docs/03-design-system.md and re-checking contrast ratios).
+
+   This file does NOT replace website/css/input.css's @theme block (brand colors,
+   fonts — those stay as-is per docs/01-brief.md's "no brand redesign" constraint).
+   It ADDS: semantic color tokens (light + dark), spacing scale, radii, elevation,
+   motion, and a typographic utility layer built from the modular scale.
+
+   Wire-up (not done automatically — implementation is out of scope for this file):
+     @import "tailwindcss";
+     @import "./tokens.css";   <- add this line to input.css, after the existing @theme block
+*/
+
+@theme {
+  /* ---- Spacing scale — base 4px, only these steps are valid ---- */
+  --spacing-4: 0.25rem;   /* 4px */
+  --spacing-8: 0.5rem;    /* 8px */
+  --spacing-12: 0.75rem;  /* 12px */
+  --spacing-16: 1rem;     /* 16px */
+  --spacing-24: 1.5rem;   /* 24px */
+  --spacing-32: 2rem;     /* 32px */
+  --spacing-48: 3rem;     /* 48px */
+  --spacing-64: 4rem;     /* 64px */
+  --spacing-96: 6rem;     /* 96px */
+
+  /* ---- Radii — max 3 ---- */
+  --radius-sm: 0.25rem;  /* 4px  — buttons, inputs, badges */
+  --radius-md: 0.5rem;   /* 8px  — piece cards, stat cards */
+  --radius-lg: 1rem;     /* 16px — hero/video media frames */
+
+  /* ---- New brand-family color variants (missing from input.css, needed for AA) ---- */
+  --color-text-muted-light: #5a4f3f;
+  --color-text-muted-dark: #b8ad93;
+  --color-border-light: #8a7550;
+  --color-border-dark: #7a6848;
+  --color-red-light: #e2626c;
+  --color-gold-deep: #734f10;
+  --color-olive-light: #8ea36c;
+  --color-success-soft-light: #e2e6d3;
+  --color-success-soft-dark: #232a1a;
+  --color-warning-soft-light: #f2e3c4;
+  --color-warning-soft-dark: #33280f;
+  --color-danger-soft-light: #f3d9d3;
+  --color-danger-soft-dark: #3a1c1a;
+
+  /* Hero identity pair — docs/03-design-system.md §3.1. Fixed, NOT theme-aware:
+     unlike --color-surface/--color-text below, this pair does not change with
+     [data-theme] or prefers-color-scheme. It is the site's closest thing to a
+     logo lockup (red text on ink), so it stays constant in both modes.
+     3.47:1 on hero-bg — AA for large text only (>=24px, or >=18.66px @ weight 700+).
+     Restrict to display/h1/h2/h3 sizes; never body/small/caption/h4. */
+  --color-hero-bg: var(--color-ink);
+  --color-hero-fg: var(--color-red);
+
+  /* Footer identity pair — docs/03-design-system.md "Patrón — Pie de página".
+     Fixed, NOT theme-aware, same rationale as hero-bg/hero-fg above: reuses
+     --color-primary/--color-primary-fg exactly (7.35:1, already verified),
+     just named for the footer's own semantics.
+     --color-footer-fg-muted fixes a real contrast bug found in production:
+     the shipped footer used cream at 55% opacity over red-dark (3.23:1, fails
+     AA for the ~12.5px meta text). This is cream at 85% opacity pre-blended
+     over red-dark (matches the already-shipped `text-cream/85` utility used
+     elsewhere in the same footer) — 5.71:1, passes AA normal text. */
+  --color-footer-bg: var(--color-primary);
+  --color-footer-fg: var(--color-primary-fg);
+  --color-footer-fg-muted: #e2cab8;
+}
+
+/* ---- Semantic color tokens ----------------------------------------------
+   Named after role, not hue, so the underlying brand values can change without
+   renaming anything that consumes them. Dark is the site's current de-facto
+   default (no theme switch exists yet); light is defined for when one is added.
+   All ratios below are verified against docs/03-design-system.md §3 — do not
+   change a value here without updating that table and recomputing contrast. */
+
+:root,
+[data-theme="dark"] {
+  --color-surface: var(--color-ink);              /* #14110e */
+  --color-surface-raised: var(--color-ink-soft);  /* #1c1712 */
+  --color-text: var(--color-cream);               /* 15.42:1 on surface */
+  --color-text-muted: var(--color-text-muted-dark); /* 8.45:1 on surface */
+  --color-border: var(--color-border-dark);       /* 3.49:1 on surface */
+
+  --color-primary: var(--color-red-dark);         /* button fill */
+  --color-primary-fg: var(--color-cream);         /* 7.35:1 on primary */
+  --color-primary-text: var(--color-red-light);   /* link/text use, 5.55:1 on surface */
+
+  --color-success: var(--color-olive-light);
+  --color-success-fg: var(--color-ink);           /* 6.81:1 on success */
+  --color-success-soft: var(--color-success-soft-dark);
+  --color-success-text: var(--color-olive-light); /* 5.37:1 on success-soft */
+
+  --color-warning: var(--color-gold);
+  --color-warning-fg: var(--color-ink);           /* 7.95:1 on warning */
+  --color-warning-soft: var(--color-warning-soft-dark);
+  --color-warning-text: var(--color-gold);        /* 6.11:1 on warning-soft, 7.95:1 on surface */
+
+  --color-danger: var(--color-red-light);
+  --color-danger-fg: var(--color-ink);            /* 5.55:1 on danger */
+  --color-danger-soft: var(--color-danger-soft-dark);
+  --color-danger-text: var(--color-red-light);    /* 4.55:1 on danger-soft */
+
+  --color-focus-ring: var(--color-gold);          /* 7.95:1 / 7.51:1 on surfaces */
+
+  --shadow-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-elevation-2: 0 4px 16px rgba(0, 0, 0, 0.55);
+  --shadow-elevation-3: 0 12px 32px rgba(0, 0, 0, 0.7);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-surface: var(--color-paper);
+    --color-surface-raised: var(--color-cream);
+    --color-text: var(--color-ink);
+    --color-text-muted: var(--color-text-muted-light);
+    --color-border: var(--color-border-light);
+
+    --color-primary: var(--color-red-dark);
+    --color-primary-fg: var(--color-cream);
+    --color-primary-text: var(--color-red-dark);
+
+    --color-success: var(--color-olive);
+    --color-success-fg: var(--color-cream);
+    --color-success-soft: var(--color-success-soft-light);
+    --color-success-text: var(--color-olive);
+
+    --color-warning: var(--color-gold);
+    --color-warning-fg: var(--color-ink);
+    --color-warning-soft: var(--color-warning-soft-light);
+    --color-warning-text: var(--color-gold-deep);
+
+    --color-danger: var(--color-red-dark);
+    --color-danger-fg: var(--color-cream);
+    --color-danger-soft: var(--color-danger-soft-light);
+    --color-danger-text: var(--color-red-dark);
+
+    --color-focus-ring: var(--color-ink);
+
+    --shadow-elevation-1: 0 1px 2px rgba(20, 17, 14, 0.08);
+    --shadow-elevation-2: 0 4px 12px rgba(20, 17, 14, 0.14);
+    --shadow-elevation-3: 0 12px 32px rgba(20, 17, 14, 0.22);
+  }
+}
+
+/* Manual override, independent of OS preference — optional, no JS required to
+   read it (implementer sets data-theme via a toggle if/when one is built). */
+[data-theme="light"] {
+  --color-surface: var(--color-paper);
+  --color-surface-raised: var(--color-cream);
+  --color-text: var(--color-ink);
+  --color-text-muted: var(--color-text-muted-light);
+  --color-border: var(--color-border-light);
+  --color-primary: var(--color-red-dark);
+  --color-primary-fg: var(--color-cream);
+  --color-primary-text: var(--color-red-dark);
+  --color-success: var(--color-olive);
+  --color-success-fg: var(--color-cream);
+  --color-success-soft: var(--color-success-soft-light);
+  --color-success-text: var(--color-olive);
+  --color-warning: var(--color-gold);
+  --color-warning-fg: var(--color-ink);
+  --color-warning-soft: var(--color-warning-soft-light);
+  --color-warning-text: var(--color-gold-deep);
+  --color-danger: var(--color-red-dark);
+  --color-danger-fg: var(--color-cream);
+  --color-danger-soft: var(--color-danger-soft-light);
+  --color-danger-text: var(--color-red-dark);
+  --color-focus-ring: var(--color-ink);
+  --shadow-elevation-1: 0 1px 2px rgba(20, 17, 14, 0.08);
+  --shadow-elevation-2: 0 4px 12px rgba(20, 17, 14, 0.14);
+  --shadow-elevation-3: 0 12px 32px rgba(20, 17, 14, 0.22);
+}
+
+/* ---- Motion --------------------------------------------------------------- */
+@theme {
+  --ease-motion-fast: ease-out;
+  --duration-motion-fast: 150ms;
+  --ease-motion-medium: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration-motion-medium: 250ms;
+  --ease-motion-slow: ease-in-out;
+  --duration-motion-slow: 400ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Typographic scale — modular ratio 1.250, base 16px -------------------
+   Exposed both as raw custom properties (for implementers who prefer to
+   compose their own utility classes) and as ready-to-use classes (.text-*),
+   matching docs/03-design-system.md §2. Desktop step applies at md (768px). */
+
+@theme {
+  --font-size-caption: 0.75rem;
+  --line-height-caption: 1.4;
+  --font-weight-caption: 500;
+  --letter-spacing-caption: 0.03em;
+
+  --font-size-small: 0.875rem;
+  --line-height-small: 1.5;
+  --font-weight-small: 400;
+
+  --font-size-body: 1rem;
+  --line-height-body: 1.6;
+  --font-weight-body: 400;
+
+  --font-size-h4: 1.25rem;
+  --line-height-h4: 1.3;
+  --font-weight-h4: 600;
+  --letter-spacing-h4: 0.02em;
+
+  --font-size-h3: 1.563rem;
+  --line-height-h3: 1.2;
+  --font-weight-h3: 700;
+
+  --font-size-h2: 1.953rem;
+  --font-size-h2-md: 2.441rem;
+  --line-height-h2: 1.15;
+  --font-weight-h2: 700;
+
+  --font-size-h1: 2.441rem;
+  --font-size-h1-md: 3.052rem;
+  --line-height-h1: 1.1;
+  --font-weight-h1: 800;
+  --letter-spacing-h1: -0.01em;
+
+  --font-size-display: 3.052rem;
+  --font-size-display-md: 3.815rem;
+  --line-height-display: 1.05;
+  --font-weight-display: 900;
+  --letter-spacing-display: -0.01em;
+}
+
+@layer components {
+  .text-caption {
+    font-family: var(--font-body);
+    font-size: var(--font-size-caption);
+    line-height: var(--line-height-caption);
+    font-weight: var(--font-weight-caption);
+    letter-spacing: var(--letter-spacing-caption);
+    text-transform: uppercase;
+  }
+  .text-small {
+    font-family: var(--font-body);
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+    font-weight: var(--font-weight-small);
+  }
+  .text-body {
+    font-family: var(--font-body);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    font-weight: var(--font-weight-body);
+    max-width: 72ch;
+  }
+  .text-h4 {
+    font-family: var(--font-body);
+    font-size: var(--font-size-h4);
+    line-height: var(--line-height-h4);
+    font-weight: var(--font-weight-h4);
+    letter-spacing: var(--letter-spacing-h4);
+    text-transform: uppercase;
+  }
+  .text-h3 {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h3);
+    line-height: var(--line-height-h3);
+    font-weight: var(--font-weight-h3);
+  }
+  .text-h2 {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    font-weight: var(--font-weight-h2);
+  }
+  .text-h1 {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h1);
+    line-height: var(--line-height-h1);
+    font-weight: var(--font-weight-h1);
+    letter-spacing: var(--letter-spacing-h1);
+  }
+  .text-display {
+    font-family: var(--font-display);
+    font-size: var(--font-size-display);
+    line-height: var(--line-height-display);
+    font-weight: var(--font-weight-display);
+    letter-spacing: var(--letter-spacing-display);
+  }
+  /* tabular figures for stat panels — docs/03-design-system.md, patrón 3 */
+  .text-tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (min-width: 768px) {
+  @layer components {
+    .text-h2 { font-size: var(--font-size-h2-md); }
+    .text-h1 { font-size: var(--font-size-h1-md); }
+    .text-display { font-size: var(--font-size-display-md); }
+  }
+}
+
+/* ---- Focus visibility ------------------------------------------------------
+   Applies the semantic focus-ring token to every keyboard-focusable element
+   that doesn't already define its own :focus-visible style. */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+/* ---- Primary CTA button ----------------------------------------------------
+   Conversion is the site's whole purpose (docs/01-brief.md, docs/02-arquitectura.md
+   flujo crítico): every "Shop on Vinted" / social link uses this base. Spec lives
+   in docs/03-design-system.md §3.2 — do not change values here without updating
+   that table and recomputing contrast. Min touch target 44x44px is met by the
+   padding + line-height combination below at the base font size (20px/1.3). */
+@layer components {
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: var(--spacing-12) var(--spacing-16);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-primary);
+    color: var(--color-primary-fg);
+    font-family: var(--font-body);
+    font-size: var(--font-size-h4);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    box-shadow: var(--shadow-elevation-2);
+    transition: transform var(--duration-motion-fast) var(--ease-motion-fast),
+      box-shadow var(--duration-motion-fast) var(--ease-motion-fast);
+  }
+  @media (min-width: 768px) {
+    .btn-primary {
+      padding: var(--spacing-16) var(--spacing-24);
+    }
+  }
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-elevation-3);
+  }
+  .btn-primary:active {
+    transform: scale(0.98);
+    box-shadow: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary:hover,
+    .btn-primary:focus-visible,
+    .btn-primary:active {
+      transform: none;
+    }
+  }
+
+  /* Hero-only reinforcement: ties the button to the red/black identity pair of
+     §3.1 with a decorative border in the same red as the headline, without
+     recoloring the button fill (avoids introducing an unverified color pair).
+     3.47:1 red-on-ink — meets the 3:1 non-text/UI contrast minimum. */
+  .btn-primary--hero {
+    border: 2px solid var(--color-hero-fg);
+  }
+
+  /* Reduced-size modifier — used in the collection card CTA, the sticky nav CTA
+     (index.html / advertisement.html) and the floating bar (stats.html).
+     docs/03-design-system.md §"Refuerzo del embudo de conversión". Color,
+     radius, shadow and hover/focus/active states are inherited from
+     .btn-primary unchanged — only footprint and font-size shrink. min-height
+     stays 44px on purpose: "reduced" must never mean a smaller touch target. */
+  .btn-primary--sm {
+    min-height: 44px;
+    padding: var(--spacing-8) var(--spacing-12);
+    font-size: var(--font-size-small);
+    letter-spacing: 0.03em;
+  }
+  @media (min-width: 768px) {
+    .btn-primary--sm {
+      padding: var(--spacing-12) var(--spacing-16);
+    }
+  }
+}
+
+/* ---- Collection card CTA reveal ---------------------------------------------
+   docs/03-design-system.md, Patrón 2 + "Refuerzo del embudo de conversión" §1.
+   Mobile-first: the base rule (outside the hover-capable media query) always
+   shows the button — this is what guarantees discoverability on touch devices,
+   which is most of the expected traffic (docs/01-brief.md). The hover-reveal
+   behavior is progressive enhancement, gated to devices that actually have a
+   fine pointer with real hover, never applied by default. */
+@layer components {
+  .pv-card-cta {
+    opacity: 1;
+    transform: none;
+    transition: opacity var(--duration-motion-fast) var(--ease-motion-fast),
+      transform var(--duration-motion-fast) var(--ease-motion-fast);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .pv-card-cta {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    .pv-card:hover .pv-card-cta,
+    .pv-card:focus-within .pv-card-cta {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pv-card-cta {
+      transition: none;
+    }
+  }
+
+  /* Persistent, always-on affordance icon (not the interactive control itself
+     — the real CTA is .pv-card-cta above). 28px, decorative, sits over the
+     existing .pv-scrim from input.css. No touch-target requirement applies
+     since it isn't independently actionable. */
+  .pv-card-affordance {
+    width: 1.75rem;
+    height: 1.75rem;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-sm);
+    background-color: color-mix(in srgb, var(--color-surface) 55%, transparent);
+    color: var(--color-text);
+  }
+}
+
+/* ---- Sticky nav CTA (index.html, advertisement.html) ------------------------
+   docs/03-design-system.md, "Refuerzo del embudo de conversión" §3/§4.
+   The nav itself keeps whatever background it already has (bg-ink today) —
+   no new color pair introduced; the CTA inside it is .btn-primary--sm. */
+@layer components {
+  .pv-nav--sticky {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
+}
+
+/* ---- Floating conversion bar (stats.html) ------------------------------------
+   docs/03-design-system.md, "Refuerzo del embudo de conversión" §2.
+   Fixed on mobile (thumb zone), sticky-to-top from lg where it visually joins
+   the nav. Background/border/text reuse already-verified pairs — see the
+   contrast table in the design system doc, no new hex values here. */
+@layer components {
+  .cta-bar--floating {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-12);
+    padding: var(--spacing-12) var(--spacing-16);
+    padding-bottom: calc(var(--spacing-12) + env(safe-area-inset-bottom, 0px));
+    background-color: var(--color-surface-raised);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+  @media (min-width: 1024px) {
+    .cta-bar--floating {
+      position: sticky;
+      top: 0;
+      bottom: auto;
+      border-top: none;
+      border-bottom: 1px solid var(--color-border);
+    }
+  }
+}
+
+/* ---- Footer (identical across index/collection/advertisement/stats) ---------
+   docs/03-design-system.md, "Patrón — Pie de página". Fixed red-dark/cream
+   surface (see --color-footer-* above), same family as the hero identity pair.
+   Replaces the 4 slightly-divergent footer markups already in production. */
+@layer components {
+  .pv-footer {
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-fg);
+    padding-top: var(--spacing-64);
+    padding-bottom: var(--spacing-48);
+  }
+  .pv-footer-fg-muted {
+    color: var(--color-footer-fg-muted);
+  }
+  .pv-footer-divider {
+    margin-top: var(--spacing-48);
+    padding-top: var(--spacing-24);
+    border-top: 1px solid color-mix(in srgb, var(--color-footer-fg) 20%, transparent);
+  }
+
+  /* ---- Disclosure (checkbox + label, zero-JS) --------------------------------
+     Reused for the footer social menu; the mobile nav toggle already in
+     production uses the same technique, this formalizes it as a named
+     component. See docs/03-design-system.md for the Escape-key limitation,
+     documented and accepted, not silently ignored. */
+  .pv-disclosure-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .pv-disclosure-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .pv-disclosure-input:focus-visible + .pv-disclosure-trigger {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+  .pv-disclosure-chevron {
+    transition: transform var(--duration-motion-fast) var(--ease-motion-fast);
+  }
+  .pv-disclosure-input:checked + .pv-disclosure-trigger .pv-disclosure-chevron {
+    transform: rotate(180deg);
+  }
+  .pv-disclosure-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--duration-motion-medium) var(--ease-motion-medium);
+  }
+  .pv-disclosure-input:checked ~ .pv-disclosure-panel {
+    max-height: 12rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pv-disclosure-chevron,
+    .pv-disclosure-panel {
+      transition: none;
+    }
+  }
+
+  .pv-footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
+    padding-top: var(--spacing-16);
+  }
+  .pv-footer-social a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    color: var(--color-footer-fg);
+    border-radius: var(--radius-sm);
+  }
+
+  .pv-footer-legal {
+    display: flex;
+    gap: var(--spacing-16);
+    flex-wrap: wrap;
+    font-size: var(--font-size-small);
+  }
+  .pv-footer-legal a {
+    color: var(--color-footer-fg);
+    text-decoration: none;
+  }
+  .pv-footer-legal a:hover,
+  .pv-footer-legal a:focus-visible {
+    text-decoration: underline;
+  }
+}
