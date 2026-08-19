@@ -580,4 +580,75 @@
   .pv-footer-legal a:focus-visible {
     text-decoration: underline;
   }
+
+  /* ---- Cookie/analytics notice banner (zero-JS, dismiss-only) ---------------
+     S-03. Uses the same checkbox+label technique as .pv-disclosure-* above:
+     the checkbox is visually hidden but focusable (reuses .pv-disclosure-input),
+     the visible control is a <label for="..."> styled as a button, and
+     :has() collapses the banner once the checkbox is checked — no JS.
+
+     Documented limitation (see docs/adr/0003-consentimiento-analitica.md and
+     cookies.html): this state is held only in the DOM of the current page.
+     It is NOT persisted anywhere — no cookie, no localStorage, no
+     sessionStorage. Reloading the page or visiting another page shows the
+     banner again. This is a deliberate trade-off to keep the "no cookies, no
+     local storage" claim on cookies.html literally true; it is not a
+     "remember my choice" consent banner. */
+  .pv-cookie-banner {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 60;
+    background: var(--color-surface-raised);
+    border-top: 1px solid color-mix(in srgb, var(--color-gold) 30%, transparent);
+    box-shadow: var(--shadow-elevation-2);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .pv-cookie-banner:has(.pv-cookie-banner-input:checked) {
+    display: none;
+  }
+  .pv-cookie-banner-inner {
+    max-width: 1120px;
+    margin-inline: auto;
+    padding: var(--spacing-16) var(--spacing-24);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-16);
+  }
+  .pv-cookie-banner-text {
+    flex: 1 1 280px;
+    margin: 0;
+    font-size: var(--font-size-small);
+    color: var(--color-text);
+  }
+  .pv-cookie-banner-text a {
+    color: var(--color-gold);
+    text-decoration: underline;
+  }
+  .pv-cookie-banner-dismiss {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: var(--spacing-8) var(--spacing-24);
+    border-radius: var(--radius-sm);
+    background: var(--color-primary);
+    color: var(--color-primary-fg);
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: var(--font-size-small);
+    cursor: pointer;
+  }
+  .pv-cookie-banner-dismiss:hover {
+    background: var(--color-red);
+  }
+  .pv-cookie-banner-input:focus-visible + .pv-cookie-banner-dismiss {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
 }
